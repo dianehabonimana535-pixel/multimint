@@ -4,14 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, Zap, Ban } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useAppNetwork } from "@/components/NetworkProvider";
-import { NETWORKS } from "@/lib/network";
-import { BRAND_NAME } from "@/lib/brand";
 
 export default function Hero() {
-  const { network } = useAppNetwork();
-  const config = NETWORKS[network];
-
   return (
     <section className="relative overflow-hidden">
       {/* Space background image */}
@@ -30,7 +24,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-4 py-1.5 text-xs backdrop-blur"
         >
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-          Live on {config.label} · No platform fee
+          Live on Solana, BNB Chain &amp; Robinhood Chain · No platform fee
         </motion.div>
 
         <motion.h1
@@ -39,9 +33,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl"
         >
-          Launch your {config.label.replace(" Smart Chain", " Chain")} token.
+          Create your Solana, BNB and Robinhood token
           <br />
-          <span className="gradient-text">Take it to the moon.</span>
+          <span className="gradient-text">and send it to the moon.</span>
         </motion.h1>
 
         <motion.p
@@ -50,9 +44,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-xl text-balance text-base text-muted-foreground sm:text-lg"
         >
-          {config.family === "solana"
-            ? "Create and deploy your SPL meme coin effortlessly in seconds \u2014 logo, metadata, and authorities included. No platform fee \u2014 you only pay whatever Solana itself charges."
-            : `Create and deploy your meme coin on ${config.label} effortlessly in seconds \u2014 logo, metadata, and ownership controls included. No platform fee \u2014 you only pay whatever ${config.label} itself charges in gas.`}
+          Pick your network, then create and deploy your meme coin in seconds \u2014 logo,
+          metadata, and authority or ownership controls included. No platform fee \u2014 you only
+          pay each network&apos;s own fees.
         </motion.p>
 
         <motion.div
@@ -77,7 +71,7 @@ export default function Hero() {
           {[
             { icon: Ban, label: "No platform fee", desc: "Free, no hidden costs" },
             { icon: ShieldCheck, label: "Non-custodial", desc: "We never see your keys" },
-            { icon: Zap, label: config.family === "solana" ? "Mints in seconds" : "Deploys in seconds", desc: `${config.label}, no queue` },
+            { icon: Zap, label: "3 networks, 1 app", desc: "Solana, BNB Chain, Robinhood Chain" },
           ].map((f) => (
             <div key={f.label} className="glass flex flex-col items-center gap-1.5 rounded-xl px-4 py-5">
               <f.icon className="h-5 w-5 text-accent" />

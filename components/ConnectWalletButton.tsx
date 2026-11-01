@@ -10,7 +10,12 @@ const SolanaConnectButton = dynamic(
   { ssr: false }
 );
 
-/** Shows the right wallet button for the selected network: Solana wallets or EVM wallets. */
+/**
+ * RainbowKit's own chain menu only lists EVM chains, so it is hidden
+ * (chainStatus="none"): the network switcher in the navbar covers every network
+ * (Solana, Solana Devnet, BNB, Robinhood...) and moves a connected EVM wallet
+ * to the matching chain.
+ * Shows the right wallet button for the selected network: Solana wallets or EVM wallets. */
 export default function ConnectWalletButton() {
   const { config } = useAppNetwork();
 
@@ -18,5 +23,5 @@ export default function ConnectWalletButton() {
     return <SolanaConnectButton className="!h-8 !rounded-md !bg-primary !text-xs !font-medium" />;
   }
 
-  return <ConnectButton chainStatus="icon" accountStatus="address" showBalance={false} />;
+  return <ConnectButton chainStatus="none" accountStatus="address" showBalance={false} />;
 }
