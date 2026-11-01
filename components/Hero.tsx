@@ -44,8 +44,8 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-xl text-balance text-base text-muted-foreground sm:text-lg"
         >
-          Pick your network, then create and deploy your meme coin in seconds \u2014 logo,
-          metadata, and authority or ownership controls included. No platform fee \u2014 you only
+          Pick your network, then create and deploy your meme coin in seconds &mdash; logo,
+          metadata, and authority or ownership controls included. No platform fee &mdash; you only
           pay each network&apos;s own fees.
         </motion.p>
 
